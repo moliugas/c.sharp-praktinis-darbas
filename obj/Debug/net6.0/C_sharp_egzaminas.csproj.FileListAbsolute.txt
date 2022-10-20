@@ -1,0 +1,17 @@
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\C_sharp_egzaminas.exe
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\C_sharp_egzaminas.deps.json
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\C_sharp_egzaminas.runtimeconfig.json
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\C_sharp_egzaminas.dll
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\C_sharp_egzaminas.pdb
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.csproj.AssemblyReference.cache
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.AssemblyInfoInputs.cache
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.AssemblyInfo.cs
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.csproj.CoreCompileInputs.cache
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.dll
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\refint\C_sharp_egzaminas.dll
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.pdb
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.genruntimeconfig.cache
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\ref\C_sharp_egzaminas.dll
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\bin\Debug\net6.0\nunit.framework.dll
+C:\Users\Audrius\source\repos\C_sharp_egzaminas\obj\Debug\net6.0\C_sharp_egzaminas.csproj.CopyComplete
