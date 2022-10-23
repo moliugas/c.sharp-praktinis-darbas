@@ -71,7 +71,30 @@ namespace C_sharp_egzaminas.Service.Import
                     }
 
                     string[] values = line.Split(',');
-                    repository.AddItem(new Entity.Record(int.Parse(values[0]), int.Parse(values[1]), values[2], int.Parse(values[3]), int.Parse(values[4]), values[5]));
+                    repository.AddItem(new Entity.Record(int.Parse(values[0]), int.Parse(values[1]), values[2], int.Parse(values[3]), int.Parse(values[4]), int.Parse(values[5])));
+                }
+            }
+            return repository;
+        }
+
+        public LessonRepository ImportLessons(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\lessons.csv")
+        {
+            LessonRepository repository = new LessonRepository();
+            using (var reader = new StreamReader(file))
+            {
+                bool firstLine = true;
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+
+                    if (firstLine)
+                    {
+                        firstLine = false;
+                        continue;
+                    }
+
+                    string[] values = line.Split(',');
+                    repository.AddItem(new Entity.Lesson(int.Parse(values[0]), values[1]));
                 }
             }
             return repository;

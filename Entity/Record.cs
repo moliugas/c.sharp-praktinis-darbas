@@ -12,27 +12,30 @@
 
         public int StudentId { get; }
 
-        public string Lesson { get; }
+        public int LessonId { get; }
+        public bool IsActive { get; private set; }
 
-        public Record(int id, int grade, string date, int teacherId, int studentId, string lesson, string message)
+        public Record(int id, int grade, string date, int teacherId, int studentId, int lessonId, string message, bool isActive = true)
         {
             Id = id;
             SetGrade(grade);
             SetDate(date);
             TeacherId = teacherId;
             StudentId = studentId;
-            Lesson = lesson;
+            LessonId = lessonId;
             Message = message;
+            IsActive = isActive;
         }
-        public Record(int id, int grade, string date, int teacherId, int studentId, string lesson)
+        public Record(int id, int grade, string date, int teacherId, int studentId, int lessonId, bool isActive = true)
         {
             Id = id;
             SetGrade(grade);
             SetDate(date);
             TeacherId = teacherId;
             StudentId = studentId;
-            Lesson = lesson;
+            LessonId = lessonId;
             Message = "";
+            IsActive = isActive;
         }
 
         public void SetGrade(int item)
@@ -51,6 +54,9 @@
             Date = DateTime.Parse(item);
         }
 
-
+        public void Delete()
+        {
+            IsActive = false;
+        }
     }
 }

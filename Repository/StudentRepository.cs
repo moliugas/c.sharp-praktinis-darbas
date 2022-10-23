@@ -23,7 +23,7 @@ namespace C_sharp_egzaminas.Repository
 
         public void DeleteById(int id)
         {
-            Students.Remove(Students[id]);
+            GetById(id).Delete();
         }
 
         public Student GetById(int id)
@@ -34,6 +34,13 @@ namespace C_sharp_egzaminas.Repository
         public List<Student> GetAll()
         {
             return Students;
+        }
+
+        public string GetFullName(int id)
+        {
+            Student student = GetById(id);
+
+            return $"{student.FirstName} {student.LastName}";
         }
     }
 }

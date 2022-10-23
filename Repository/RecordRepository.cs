@@ -4,37 +4,59 @@ namespace C_sharp_egzaminas.Repository
 {
     public class RecordRepository
     {
-        List<ReportItem> Records { get; }
+        List<Record> Records { get; }
 
         public RecordRepository()
         {
-            Records = new List<ReportItem>();
+            Records = new List<Record>();
         }
 
-        public void AddItem(ReportItem item)
+        public void AddItem(Record item)
         {
             Records.Add(item);
         }
 
-        public void AddItems(List<ReportItem> items)
+        public void AddItems(List<Record> items)
         {
             Records.Concat(items);
         }
 
         public void DeleteById(int id)
         {
-            Records.Remove(GetById(id));
+            GetById(id).Delete();
         }
 
-        public ReportItem GetById(int id)
+        public Record GetById(int id)
         {
             return Records.SingleOrDefault(x => x.Id == id);
         }
 
-        public List<ReportItem> GetAll()
+        public List<Record> GetAll()
         {
             return Records;
         }
+
+        public List<Record> GetByPeriod(DateTime from, DateTime to)
+        {
+            return Records.FindAll(x => x.Date.CompareTo(from) >= 0 && x.Date.CompareTo(to) <= 0);
+        }
+
+        public List<Record> GetAllByStudentId(int id)
+        {
+            return Records.FindAll(x => x.StudentId == id);
+        }
+
+        public List<Record> GetAllByTeacherId(int id)
+        {
+            return Records.FindAll(x => x.TeacherId == id);
+        }
+
+        public List<Record> GetAllByLessonId(int id)
+        {
+            return Records.FindAll(x => x.LessonId == id);
+        }
+
+
 
     }
 }
