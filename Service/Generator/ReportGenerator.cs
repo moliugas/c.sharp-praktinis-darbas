@@ -94,7 +94,7 @@ namespace C_sharp_egzaminas.Service.Generate
             return titles.Concat(lines).ToList();
         }
 
-        public List<ReportItem>[] GenerateFullYearStudentReportByStudentIdAndSemester(int studentId, int year)
+        public List<ReportItem>[] GenerateFullYearStudentReportByStudentId(int studentId, int year)
         {
             List<ReportItem>[] results = new List<ReportItem>[] {
             GenerateFullSemesterStudentReportByStudentIdAndSemester(studentId, 1, year),

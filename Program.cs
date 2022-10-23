@@ -13,9 +13,11 @@ LessonRepository lessons = import.ImportLessons();
 ReportGenerator reportGenerator = new ReportGenerator(students, teachers, records, lessons);
 
 var rec = records.GetAllByStudentId(1);
-var mex = reportGenerator.GenerateFullYearStudentReportByStudentIdAndSemester(1, 2002);
+var mex = reportGenerator.GenerateFullYearStudentReportByStudentId(1, 2021);
 
 List<ReportItem> reportItems = reportGenerator.GenerateFullSemesterStudentReportByStudentIdAndSemester(1, 2, 2021);
 
-Console.WriteLine(mex[0].Id);
+string htmlTable = HTMLGenerator.GenerateHTML(reportItems);
+
+Console.WriteLine(htmlTable);
 
