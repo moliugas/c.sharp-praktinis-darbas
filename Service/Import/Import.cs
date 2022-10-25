@@ -5,40 +5,28 @@ namespace C_sharp_egzaminas.Service.Import
 {
     public class Import
     {
-        public Import() { }
+        StudentRepository students;
+        TeacherRepository teachers;
+        RecordRepository records;
+        LessonRepository lessons;
 
-        public StudentRepository ImportStudents(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\students.csv")
+        public Import(ref StudentRepository studentRepository, ref TeacherRepository teacherRepository, ref RecordRepository recordRepository, ref LessonRepository lessonRepository)
         {
-            StudentRepository repository = new StudentRepository();
-            using (var reader = new StreamReader(file))
-            {
-                bool firstLine = true;
-                while (!reader.EndOfStream)
-                {
+            students = studentRepository;
+            teachers = teacherRepository;
+            records = recordRepository;
+            lessons = lessonRepository;
 
-                    string line = reader.ReadLine();
-
-                    if (firstLine)
-                    {
-                        firstLine = false;
-                        continue;
-                    }
-
-                    string[] values = line.Split(',');
-                    repository.AddItem(new Student(int.Parse(values[0]), values[1], values[2], values[3]));
-                }
-            }
-            return repository;
         }
 
-        public TeacherRepository ImportTeachers(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\teachers.csv")
+        public void ImportStudents(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\students.csv")
         {
-            TeacherRepository repository = new TeacherRepository();
             using (var reader = new StreamReader(file))
             {
                 bool firstLine = true;
                 while (!reader.EndOfStream)
                 {
+
                     string line = reader.ReadLine();
 
                     if (firstLine)
@@ -48,15 +36,13 @@ namespace C_sharp_egzaminas.Service.Import
                     }
 
                     string[] values = line.Split(',');
-                    repository.AddItem(new Entity.Teacher(int.Parse(values[0]), values[1], values[2], values[3]));
+                    students.AddItem(new Student(int.Parse(values[0]), values[1], values[2], values[3]));
                 }
             }
-            return repository;
         }
 
-        public RecordRepository ImportRecords(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\records.csv")
+        public void ImportTeachers(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\teachers.csv")
         {
-            RecordRepository repository = new RecordRepository();
             using (var reader = new StreamReader(file))
             {
                 bool firstLine = true;
@@ -71,15 +57,13 @@ namespace C_sharp_egzaminas.Service.Import
                     }
 
                     string[] values = line.Split(',');
-                    repository.AddItem(new Entity.Record(int.Parse(values[0]), int.Parse(values[1]), values[2], int.Parse(values[3]), int.Parse(values[4]), int.Parse(values[5])));
+                    teachers.AddItem(new Entity.Teacher(int.Parse(values[0]), values[1], values[2], values[3]));
                 }
             }
-            return repository;
         }
 
-        public LessonRepository ImportLessons(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\lessons.csv")
+        public void ImportRecords(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\records.csv")
         {
-            LessonRepository repository = new LessonRepository();
             using (var reader = new StreamReader(file))
             {
                 bool firstLine = true;
@@ -94,10 +78,38 @@ namespace C_sharp_egzaminas.Service.Import
                     }
 
                     string[] values = line.Split(',');
-                    repository.AddItem(new Entity.Lesson(int.Parse(values[0]), values[1]));
+                    records.AddItem(new Entity.Record(int.Parse(values[0]), int.Parse(values[1]), values[2], int.Parse(values[3]), int.Parse(values[4]), int.Parse(values[5])));
                 }
             }
-            return repository;
+        }
+
+        public void ImportLessons(string file = @"C:\Users\Audrius\source\repos\C_sharp_egzaminas\Data\lessons.csv")
+        {
+            using (var reader = new StreamReader(file))
+            {
+                bool firstLine = true;
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+
+                    if (firstLine)
+                    {
+                        firstLine = false;
+                        continue;
+                    }
+
+                    string[] values = line.Split(',');
+                    lessons.AddItem(new Entity.Lesson(int.Parse(values[0]), values[1]));
+                }
+            }
+        }
+
+        public void ImportAll()
+        {
+            ImportStudents();
+            ImportTeachers();
+            ImportRecords();
+            ImportLessons();
         }
     }
 }
