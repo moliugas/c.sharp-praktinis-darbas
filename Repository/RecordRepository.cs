@@ -56,6 +56,10 @@ namespace C_sharp_egzaminas.Repository
             return Records.FindAll(x => x.LessonId == id);
         }
 
+        public int GetNextId()
+        {
+            return Records.Max(x => x.Id) + 1;
+        }
 
 
     }

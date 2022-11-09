@@ -1,6 +1,6 @@
 ﻿using C_sharp_egzaminas.Entity;
 
-namespace C_sharp_egzaminas.Service.Generate
+namespace C_sharp_egzaminas.Service.Generator
 {
 
     public static class HTMLGenerator
@@ -15,9 +15,9 @@ namespace C_sharp_egzaminas.Service.Generate
                 {
                     continue;
                 }
-               
+
                 result += item.Type == "titleItem"
-                    ? $"  <tr>\r\n    <td class=\"tg-2gvg\">{row}</td>\r\n    <td class=\"tg-2gvg\">{item.StudentName}</td>\r\n    <td class=\"tg-2gvg\">{item.Lesson}</td>\r\n    <td class=\"tg-2gvg\">{item.GradeAverage}</td>\r\n    <td class=\"tg-2gvg\">-</td>\r\n    <td class=\"tg-2gvg\">-</td>\r\n    <td class=\"tg-du61\">-</td>\r\n  </tr>"
+                    ? $"  <tr>\r\n    <td class=\"tg-2gvg\">{row}</td>\r\n    <td class=\"tg-2gvg\">{item.StudentName}</td>\r\n    <td class=\"tg-2gvg\">{item.Lesson}</td>\r\n    <td class=\"tg-2gvg\">{item.GradeAverage}</td>\r\n    <td class=\"tg-2gvg\">Average</td>\r\n    <td class=\"tg-2gvg\">-</td>\r\n    <td class=\"tg-du61\">-</td>\r\n  </tr>"
                     : $"  <tr>\r\n    <td class=\"tg-ncd7\">{row}</td>\r\n    <td class=\"tg-ncd7\">{item.StudentName}</td>\r\n    <td class=\"tg-ncd7\">{item.Lesson}</td>\r\n    <td class=\"tg-ncd7\">{item.Grade}</td>\r\n    <td class=\"tg-ncd7\">{item.TeacherName}</td>\r\n    <td class=\"tg-ncd7\">{item.Message}</td>\r\n    <td class=\"tg-m9r4\">{item.Date}</td>\r\n  </tr>";
                 row++;
             }

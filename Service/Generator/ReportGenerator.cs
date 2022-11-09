@@ -1,7 +1,7 @@
 ﻿using C_sharp_egzaminas.Entity;
 using C_sharp_egzaminas.Repository;
 
-namespace C_sharp_egzaminas.Service.Generate
+namespace C_sharp_egzaminas.Service.Generator
 {
     public class ReportGenerator
     {
@@ -93,18 +93,6 @@ namespace C_sharp_egzaminas.Service.Generate
 
             return titles.Concat(lines).ToList();
         }
-
-        public List<ReportItem>[] GenerateFullYearStudentReportByStudentId(int studentId, int year)
-        {
-            List<ReportItem>[] results = new List<ReportItem>[] {
-            GenerateFullSemesterStudentReportByStudentIdAndSemester(studentId, 1, year),
-            GenerateFullSemesterStudentReportByStudentIdAndSemester(studentId, 2, year),
-            GenerateFullSemesterStudentReportByStudentIdAndSemester(studentId, 3, year),
-            };
-
-            return results;
-        }
-
 
         private DateTime[] GetSemesterPeriodBySchoolYear(int year, int semester)
         {

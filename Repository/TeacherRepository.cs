@@ -41,5 +41,10 @@ namespace C_sharp_egzaminas.Repository
 
             return $"{teacher.FirstName} {teacher.LastName}";
         }
+
+        public int GetNextId()
+        {
+            return Teachers.Max(x => x.Id) + 1;
+        }
     }
 }

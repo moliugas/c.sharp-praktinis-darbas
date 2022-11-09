@@ -38,6 +38,18 @@
             IsActive = isActive;
         }
 
+        public Record(int id, int grade, int teacherId, int studentId, int lessonId, string message, bool isActive = true)
+        {
+            Id = id;
+            SetGrade(grade);
+            Date = DateTime.Now;
+            TeacherId = teacherId;
+            StudentId = studentId;
+            LessonId = lessonId;
+            Message = message;
+            IsActive = isActive;
+        }
+
         public void SetGrade(int item)
         {
             if (item < 0 || item > 10)
